@@ -1,0 +1,128 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: #333;
+    padding-bottom: 50px; /* Espaço para o footer */
+}
+
+/* Container principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Cabeçalho (Header) */
+header {
+    background: #007bff;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+/* Botões de Projeto */
+.botoes-projetos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.btn-projeto {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    flex-grow: 1; /* Para ocupar o espaço disponível */
+    max-width: 250px;
+}
+
+.btn-projeto:hover {
+    background-color: #4cae4c;
+}
+
+/* Cards de Detalhes do Projeto */
+.detalhes-projetos {
+    position: relative; /* Para posicionar os cards flutuantes */
+}
+
+.projeto-card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    /* Posicionamento para o card aparecer por cima */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 800px;
+    z-index: 10; /* Garante que fique acima de outros elementos */
+    
+    /* Adiciona uma transição suave para aparecer */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.projeto-card.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.projeto-card h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.projeto-card a {
+    display: inline-block;
+    background-color: #ffc107;
+    color: #333;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.fechar-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right; /* Alinha o botão Fechar à direita */
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
