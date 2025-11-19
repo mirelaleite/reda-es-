@@ -8,121 +8,149 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f9;
     color: #333;
-    padding-bottom: 50px; /* Espaço para o footer */
+    background-color: #f4f4f4;
 }
 
-/* Container principal */
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
-/* Cabeçalho (Header) */
+/* Estilo do Cabeçalho (Header) */
 header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+/* Estilo do Botão */
+.btn {
+    display: inline-block;
     background: #007bff;
     color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    margin-bottom: 5px;
-}
-
-/* Botões de Projeto */
-.botoes-projetos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.btn-projeto {
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
+    padding: 10px 20px;
+    text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
-    flex-grow: 1; /* Para ocupar o espaço disponível */
-    max-width: 250px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
 }
 
-.btn-projeto:hover {
-    background-color: #4cae4c;
+.btn:hover {
+    background: #0056b3;
 }
 
-/* Cards de Detalhes do Projeto */
-.detalhes-projetos {
-    position: relative; /* Para posicionar os cards flutuantes */
+/* Seção de Projetos (Grid) */
+#projetos {
+    padding: 40px 0;
+    text-align: center;
 }
 
-.projeto-card {
-    background: white;
-    border: 1px solid #ddd;
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-    /* Posicionamento para o card aparecer por cima */
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    max-width: 800px;
-    z-index: 10; /* Garante que fique acima de outros elementos */
-    
-    /* Adiciona uma transição suave para aparecer */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    text-align: left;
 }
 
-.projeto-card.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.projeto-card h3 {
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-.projeto-card a {
-    display: inline-block;
-    background-color: #ffc107;
-    color: #333;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
-}
-
-.fechar-btn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    float: right; /* Alinha o botão Fechar à direita */
-}
-
-/* Footer */
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
+.project-card img {
     width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* Detalhe do Projeto */
+.project-detail figure img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.project-links a.secondary {
+    background: #6c757d;
+    margin-left: 10px;
+}
+.project-links a.secondary:hover {
+    background: #5a6268;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 600px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header nav ul {
+        margin-top: 10px;
+    }
+
+    header nav ul li {
+        margin: 0 10px;
+    }
+}
+
+.titulo-imagem {
+    text-align: center; /* Centraliza a imagem e a legenda */
+}
+
+.botao-voltar {
+    /* Define o link como um bloco para que possa ter altura e largura */
+    display: inline-block;
+    
+    /* Preenchimento para dar "espaço" dentro do botão */
+    padding: 10px 20px;
+    
+    /* Cor de fundo e cor do texto */
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    
+    /* Remove o sublinhado padrão dos links */
+    text-decoration: none;
+    
+    /* Arredonda as bordas */
+    border-radius: 5px;
+    
+    /* Muda o cursor para indicar que é clicável */
+    cursor: pointer;
+    
+    /* Transição suave para o efeito hover */
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.botao-voltar:hover {
+    background-color: #0056b3; /* Um azul um pouco mais escuro */
 }

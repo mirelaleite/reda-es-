@@ -1,55 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Seleciona todos os botões de projeto
-    const botoesProjeto = document.querySelectorAll('.btn-projeto');
-    // 2. Seleciona todos os cards de detalhes de projeto
-    const cardsProjeto = document.querySelectorAll('.projeto-card');
-    // 3. Seleciona todos os botões de fechar
-    const botoesFechar = document.querySelectorAll('.fechar-btn');
-    
-    let projetoAberto = null; // Variável para rastrear qual projeto está aberto
+document.addEventListener('DOMContentLoaded', function() {
+    // Exemplo de interatividade: Adicionar um efeito de destaque ao passar o mouse
+    const projectCards = document.querySelectorAll('.project-card');
 
-    // Função para esconder todos os cards
-    function esconderTodosProjetos() {
-        cardsProjeto.forEach(card => {
-            card.classList.remove('visible');
-            card.classList.add('hidden');
+    projectCards.forEach(card => {
+        card.addEventListener('mouseover', function() {
+            card.style.transform = 'translateY(-5px)';
+            card.style.transition = 'transform 0.3s ease';
         });
-        projetoAberto = null;
-    }
 
-    // Adiciona evento de clique a cada botão de projeto
-    botoesProjeto.forEach(botao => {
-        botao.addEventListener('click', (e) => {
-            const projetoId = e.target.dataset.projeto; // Pega o valor do 'data-projeto' (ex: 'projeto1')
-            const cardAlvo = document.getElementById(projetoId);
-            
-            // Se o projeto já estiver aberto, fecha ele
-            if (projetoAberto === cardAlvo) {
-                esconderTodosProjetos();
-            } else {
-                // Senão, esconde todos e mostra o card alvo
-                esconderTodosProjetos();
-                if (cardAlvo) {
-                    cardAlvo.classList.remove('hidden');
-                    cardAlvo.classList.add('visible');
-                    projetoAberto = cardAlvo;
-                }
-            }
+        card.addEventListener('mouseout', function() {
+            card.style.transform = 'translateY(0)';
         });
     });
     
-    // Adiciona evento de clique aos botões de fechar
-    botoesFechar.forEach(botao => {
-        botao.addEventListener('click', esconderTodosProjetos);
-    });
-
-    // Opcional: Fechar ao clicar fora do card
-    document.addEventListener('click', (e) => {
-        // Verifica se o clique não foi em um card ou em um botão que abre um card
-        if (projetoAberto && 
-            !projetoAberto.contains(e.target) && 
-            !e.target.classList.contains('btn-projeto')) {
-            esconderTodosProjetos();
-        }
-    });
+    // Você pode adicionar mais código JavaScript aqui para:
+    // 1. Navegação suave (scroll suave ao clicar nos links do menu).
+    // 2. Validação de formulários de contato.
+    // 3. Efeitos de animação ou carregamento (ex: Scroll Reveal).
 });
